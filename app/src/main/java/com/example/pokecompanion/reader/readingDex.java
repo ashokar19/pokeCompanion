@@ -1,5 +1,7 @@
 package com.example.pokecompanion.reader;
 
+import com.example.pokecompanion.models.pokemonObject;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,7 +15,12 @@ import java.util.Random;
 public class readingDex {
     private static String pokemonPick;
     private static String fileName;
+    private static String[] pokeInfo;
+    private pokemonObject pokemon;
     static List<String> pokemonList = new ArrayList<>();
+
+
+
 
     public static void reader() throws IOException {
         fileName = "kantoDex";
@@ -30,11 +37,15 @@ public class readingDex {
             br.close();
         }
 
-        fileLine = all.toString();
+        all.toString();
         Random rand = new Random();
         int randomPick = rand.nextInt(pokemonList.size());
         String selectedPick = pokemonList.get(randomPick);
         pokemonPick = selectedPick;
+        System.out.println(pokemonPick);
+        pokeInfo = pokemonPick.split(" ");
+        String pokeID = pokeInfo[0];
+        String pokemonName = pokeInfo[1];
         //make random pick here
 
     }
