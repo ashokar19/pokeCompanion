@@ -20,8 +20,6 @@ public class pokemonObject {
     String type;
     int id;
     String color;
-    pokeManager manager = pokeManager.getInstance();
-    Random randomChild = new Random();
 
     public pokemonObject(String setName, String setType, int setID, String setColor) {
         name = setName;
