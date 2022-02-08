@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PokeCompanion">
         <activity
-            android:name=".MainActivity"
+            android:name=".startScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

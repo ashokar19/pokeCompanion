@@ -4,10 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/activity_main.xml" value="0.17798913043478262" />
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/add.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/addPokemonScreen.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/edit.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/editPokemonScreen.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/help.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/helpScreen.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/layout.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/layout2.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/layout3.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/start_screen.xml" value="0.264" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
