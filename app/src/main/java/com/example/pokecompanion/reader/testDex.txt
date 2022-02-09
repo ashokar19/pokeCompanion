@@ -1,0 +1,36 @@
+1 Bulbasaur Grass Poison
+2 Ivysaur Grass Poison
+3 Venusaur Grass Poison
+4 Charmander Fire
+5 Charmeleon Fire
+6 Charizard Fire Flying
+7 Squirtle Water
+8 Wartortle Water
+9 Blastoise Water
+152 Chikorita Grass
+153 Bayleef Grass
+154 Meganium Grass
+155 Cyndaquil Fire
+156 Quilava Fire
+157 Typhlosion Fire
+158 Totodile Water
+159 Croconaw Water
+160 Feraligatr Water
+1 Treecko Grass
+2 Grovyle Grass
+3 Sceptile Grass
+4 Torchic Fire
+5 Combusken Fire Fighting
+6 Blaziken Fire Fighting
+7 Mudkip Water
+8 Marshtomp Water Ground
+9 Swampert Water Ground
+1 Turtwig Grass
+2 Grotle Grass Ground
+3 Torterra Grass Ground
+4 Chimchar Fire
+5 Monferno Fire Fighting
+6 Infernape Fire Fighting
+7 Piplup Water
+8 Prinplup Water Steel
+9 Empoleon Water Steel

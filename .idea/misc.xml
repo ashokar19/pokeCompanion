@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/activities_screen.xml" value="0.25" />
         <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/activity_main.xml" value="0.17798913043478262" />
         <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/add.xml" value="0.15172101449275363" />
         <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/addPokemonScreen.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/add_pokemon_screen.xml" value="0.25" />
         <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/edit.xml" value="0.15172101449275363" />
         <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/editPokemonScreen.xml" value="0.15172101449275363" />
         <entry key="..\:/Users/arjun/PokeCompanion/app/src/main/res/layout/help.xml" value="0.15172101449275363" />

@@ -6,18 +6,14 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class addPokemonActivity extends AppCompatActivity {
-
+public class pokemonActivitiesActivity extends AppCompatActivity {
     public static Intent makeIntent(Context context) {
-        return new Intent(context, addPokemonActivity.class);
+        return new Intent(context, pokemonActivitiesActivity.class);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_pokemon_screen);
-
+        setContentView(R.layout.activities_screen);
     }
-
 }
-

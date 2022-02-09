@@ -19,13 +19,14 @@ public class pokemonObject {
     String name;
     String type;
     int id;
-    String color;
+    LocalDateTime date;
 
-    public pokemonObject(String setName, String setType, int setID, String setColor) {
+    //for type, check the size of the array of the string split of the type and if <2, access type.split() array at [0] and [1]
+    public pokemonObject(String setName, String setType, int setID) {
         name = setName;
         type = setType;
         id = setID;
-        color = setColor;
+        date = LocalDateTime.now();
     }
 
     public String getName() {
@@ -35,16 +36,16 @@ public class pokemonObject {
 
     public String getType() {
         return type;
-
-    }
-
-    public String getColor() {
-        return color;
-
     }
 
     public int getID() {
         return id;
+    }
+
+    public String getDate(){
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDate = date.format(format);
+        return formattedDate;
     }
 
 }

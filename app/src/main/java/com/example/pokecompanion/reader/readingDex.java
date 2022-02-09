@@ -23,7 +23,7 @@ public class readingDex {
 
 
     public static void reader() throws IOException {
-        fileName = "kantoDex";
+        fileName = "testDex";
 
         FileInputStream fstream = new FileInputStream(fileName);
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
@@ -44,8 +44,9 @@ public class readingDex {
         pokemonPick = selectedPick;
         System.out.println(pokemonPick);
         pokeInfo = pokemonPick.split(" ");
-        String pokeID = pokeInfo[0];
+        int pokeID = Integer.parseInt(pokeInfo[0]);
         String pokemonName = pokeInfo[1];
+
         //make random pick here
 
     }
