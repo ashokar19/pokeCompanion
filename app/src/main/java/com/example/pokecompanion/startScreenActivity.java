@@ -19,9 +19,9 @@ public class startScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_screen);
-        setupAllButtons();
         MediaPlayer music = MediaPlayer.create(startScreenActivity.this, R.raw.pokemon_center_music);
         music.start();
+        setupAllButtons();
     }
 
     public void setupAllButtons(){
