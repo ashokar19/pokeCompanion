@@ -1,5 +1,6 @@
 package com.example.pokecompanion.reader;
 
+import com.example.pokecompanion.R;
 import com.example.pokecompanion.models.pokemonObject;
 
 import java.io.BufferedReader;
@@ -16,16 +17,14 @@ public class readingDex {
     private static String pokemonPick;
     private static String fileName;
     private static String[] pokeInfo;
-    private pokemonObject pokemon;
+    private static pokemonObject pokemon;
     static List<String> pokemonList = new ArrayList<>();
 
 
+    public static pokemonObject reader() throws IOException {
+        fileName = "test_dex";
 
-
-    public static void reader() throws IOException {
-        fileName = "testDex";
-
-        FileInputStream fstream = new FileInputStream(fileName);
+        FileInputStream fstream = new FileInputStream(String.valueOf(R.raw.test_dex));
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
         StringBuilder all = new StringBuilder();
         String fileLine;
@@ -33,6 +32,7 @@ public class readingDex {
         //readline reads the individual lines of the file using the buffered reader
 
         while ((fileLine = br.readLine()) != null) {
+            System.out.print(fileLine);
             pokemonList.add(fileLine);
             br.close();
         }
@@ -41,13 +41,21 @@ public class readingDex {
         Random rand = new Random();
         int randomPick = rand.nextInt(pokemonList.size());
         String selectedPick = pokemonList.get(randomPick);
+
         pokemonPick = selectedPick;
         System.out.println(pokemonPick);
+
         pokeInfo = pokemonPick.split(" ");
         int pokeID = Integer.parseInt(pokeInfo[0]);
-        String pokemonName = pokeInfo[1];
+        String pokeName = pokeInfo[1];
+        String pokeType = pokeInfo[2];
+        if (pokeInfo.length > 3) {
+            pokeType += " " + pokeInfo[3];
+        }
 
-        //make random pick here
+        pokemon = new pokemonObject(pokeName, pokeType, pokeID);
+
+        return pokemon;
 
     }
 
