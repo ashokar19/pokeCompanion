@@ -38,7 +38,7 @@ public class startScreenActivity extends AppCompatActivity {
         editPokemonButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = editPokemonActivity.makeIntent(startScreenActivity.this);
+                Intent intent = pokemonMenuActivity.makeIntent(startScreenActivity.this);
                 startActivity(intent);
             }
         });

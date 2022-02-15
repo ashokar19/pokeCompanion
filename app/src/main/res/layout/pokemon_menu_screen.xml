@@ -7,6 +7,13 @@
     android:background="@drawable/background"
     tools:context=".editPokemonActivity">
 
+    <ListView
+        android:id="@+id/listViewPokemonMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/transparent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

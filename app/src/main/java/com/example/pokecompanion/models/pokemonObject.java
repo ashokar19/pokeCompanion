@@ -20,14 +20,7 @@ public class pokemonObject {
     String type;
     int id;
     LocalDateTime date;
-
-    //for type, check the size of the array of the string split of the type and if <2, access type.split() array at [0] and [1]
-//    public pokemonObject(String setName, String setType, int setID) {
-//        name = setName;
-////        type = setType;
-//        id = setID;
-//        date = LocalDateTime.now();
-//    }
+    String nickName;
 
     public pokemonObject(String setName, String setType, int setID) {
         name = setName;
@@ -38,7 +31,6 @@ public class pokemonObject {
 
     public String getName() {
         return name;
-
     }
 
     public String getType() {
@@ -53,6 +45,10 @@ public class pokemonObject {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formattedDate = date.format(format);
         return formattedDate;
+    }
+
+    public void setNickName(String newNickName) {
+        nickName = newNickName;
     }
 
 }

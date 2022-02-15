@@ -12,9 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.pokecompanion.models.pokeManager;
 import com.example.pokecompanion.models.pokemonObject;
 
 import java.io.BufferedReader;
@@ -36,7 +38,9 @@ public class addPokemonActivity extends AppCompatActivity {
     static List<String> pokemonList = new ArrayList<>();
 //when adding a pokemon
     pokemonObject pokemonToAdd;
+    int count = 3;
 //manager to add pokemon to your list
+    pokeManager manager;
 
     public static Intent makeIntent(Context context) {
         return new Intent(context, addPokemonActivity.class);
@@ -46,38 +50,37 @@ public class addPokemonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_pokemon_screen);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        setTitle("Add a Pokemon!");
+
+
+        manager = pokeManager.getInstance();
 
         Button randomize = (Button) findViewById(R.id.randomizerBtn);
         randomize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int count = 3;
-                while(count > 0) {
+                if(count > 0) {
                     pokemonToAdd = readData();
                     TextView view = (TextView) findViewById(R.id.addedPokeNameLine);
                     view.setText(pokemonToAdd.getName());
                     String s = "You have " + count + " tries rolls remaining";
                     Toast.makeText(addPokemonActivity.this, s, Toast.LENGTH_SHORT).show();
                     count--;
+                } else {
+                    Toast.makeText(addPokemonActivity.this, "You have 0 rolls, this pokemon has been added to your partners!", Toast.LENGTH_SHORT).show();
+                    manager.addPokemon(pokemonToAdd);
+                    finish();
+
                 }
-                Toast.makeText(addPokemonActivity.this, "You have 0 rolls, this pokemon has been added to your partners!", Toast.LENGTH_SHORT).show();
-
-
             }
         });
 
-
-//        Button checkTaskComplete = (Button) findViewById(R.id.taskCompleteCheck);
-//        checkTaskComplete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//                editedTask.nextAssignee();
-//                Log.i("MyApp", "Task has been completed");
-//            }
-//        });
     }
 
     @Override
@@ -91,7 +94,9 @@ public class addPokemonActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()) {
             case R.id.action_save_poke:
-
+                manager.addPokemon(pokemonToAdd);
+                String name = pokemonToAdd.getName();
+                Toast.makeText(addPokemonActivity.this, "You've chosen to add is " + name + "!!!", Toast.LENGTH_SHORT).show();
                 finish();
                 return true;
 
