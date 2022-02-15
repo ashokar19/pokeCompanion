@@ -22,6 +22,13 @@ public class pokemonObject {
     LocalDateTime date;
 
     //for type, check the size of the array of the string split of the type and if <2, access type.split() array at [0] and [1]
+//    public pokemonObject(String setName, String setType, int setID) {
+//        name = setName;
+////        type = setType;
+//        id = setID;
+//        date = LocalDateTime.now();
+//    }
+
     public pokemonObject(String setName, String setType, int setID) {
         name = setName;
         type = setType;

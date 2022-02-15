@@ -16,15 +16,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.pokecompanion.models.pokemonObject;
-import com.example.pokecompanion.reader.readingDex;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URISyntaxException;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class addPokemonActivity extends AppCompatActivity {
-
-    readingDex randomReader;
+//used in the reader functions
+    private static String pokemonPick;
+    private static String fileName;
+    private static String[] pokeInfo;
+    private static pokemonObject pokemon;
+    static List<String> pokemonList = new ArrayList<>();
+//when adding a pokemon
     pokemonObject pokemonToAdd;
-
+//manager to add pokemon to your list
 
     public static Intent makeIntent(Context context) {
         return new Intent(context, addPokemonActivity.class);
@@ -41,22 +53,18 @@ public class addPokemonActivity extends AppCompatActivity {
         randomize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                   pokemonToAdd = readingDex.reader();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                int count = 3;
+                while(count > 0) {
+                    pokemonToAdd = readData();
+                    TextView view = (TextView) findViewById(R.id.addedPokeNameLine);
+                    view.setText(pokemonToAdd.getName());
+                    String s = "You have " + count + " tries rolls remaining";
+                    Toast.makeText(addPokemonActivity.this, s, Toast.LENGTH_SHORT).show();
+                    count--;
                 }
+                Toast.makeText(addPokemonActivity.this, "You have 0 rolls, this pokemon has been added to your partners!", Toast.LENGTH_SHORT).show();
 
-                TextView view = (TextView) findViewById(R.id.addedPokeNameLine);
-                try {
-                    view.setText(readingDex.reader().getName());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
 
-                finish();
-
-                Log.i("MyApp", "Task has been completed");
             }
         });
 
@@ -95,6 +103,41 @@ public class addPokemonActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public pokemonObject readData(){
+
+        InputStream stream = getResources().openRawResource(R.raw.test_dex);
+        BufferedReader br = new BufferedReader(new InputStreamReader(stream, Charset.forName("UTF-8")));
+        StringBuilder all = new StringBuilder();
+        String fileLine;
+
+        //readline reads the individual lines of the file using the buffered reader
+        try {
+            while ((fileLine = br.readLine()) != null) {
+                pokemonList.add(fileLine);
+            }
+        } catch(IOException e) {
+            Toast.makeText(addPokemonActivity.this, "Error reading data", Toast.LENGTH_SHORT).show();
+        }
+        all.toString();
+        Random rand = new Random();
+        int randomPick = rand.nextInt(pokemonList.size());
+        String selectedPick = pokemonList.get(randomPick);
+
+        pokemonPick = selectedPick;
+
+        pokeInfo = pokemonPick.split(" ");
+        int pokeID = Integer.parseInt(pokeInfo[0]);
+        String pokeName = pokeInfo[1];
+        String pokeType = pokeInfo[2];
+        if (pokeInfo.length > 3) {
+            pokeType += " " + pokeInfo[3];
+        }
+
+        pokemon = new pokemonObject(pokeName, pokeType, pokeID);
+        System.out.print(pokemon.getName() + pokemon.getType());
+        return pokemon;
     }
 
 }
