@@ -9,15 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.example.pokecompanion.models.pokeManager;
 import com.example.pokecompanion.models.pokemonObject;
@@ -89,6 +86,7 @@ public class pokemonMenuActivity extends AppCompatActivity {
         public MyListAdapter() {
             super(pokemonMenuActivity.this, R.layout.pokemon_list_item, manager.returnPokemonList());
         }
+        @SuppressLint("SetTextI18n")
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View itemView = convertView;
@@ -98,11 +96,16 @@ public class pokemonMenuActivity extends AppCompatActivity {
             }
             pokemonObject pokemonIndex = manager.returnPokemonList().get(position);
 
-            @SuppressLint("ResourceType") TextView kidInfo = (TextView) itemView.findViewById(R.id.pokeText);
 //            @SuppressLint("ResourceType")ImageView kidMiniImage = (ImageView) itemView.findViewById(R.id.pokeMiniImage);
 //            kidMiniImage.setImageBitmap(currentKid.getImage());
-            kidInfo.setText(pokemonIndex.getName());
-
+            @SuppressLint("ResourceType") TextView pokemonNameDisplay = (TextView) itemView.findViewById(R.id.pokeNameGoes);
+            pokemonNameDisplay.setText(pokemonIndex.getName());
+            @SuppressLint("ResourceType") TextView pokemonDateDisplay = (TextView) itemView.findViewById(R.id.pokeDateMet);
+            pokemonDateDisplay.setText("Met on " + pokemonIndex.getDate());
+            @SuppressLint("ResourceType") TextView pokemonTypeDisplay = (TextView) itemView.findViewById(R.id.pokeType);
+            pokemonTypeDisplay.setText(pokemonIndex.getType());
+            @SuppressLint("ResourceType") TextView pokemonHappinessDisplay = (TextView) itemView.findViewById(R.id.pokeHappiness);
+            pokemonHappinessDisplay.setText(pokemonIndex.getHappiness());
             return itemView;
         }
 

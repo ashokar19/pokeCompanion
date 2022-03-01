@@ -126,6 +126,7 @@ public class addPokemonActivity extends AppCompatActivity {
             Toast.makeText(addPokemonActivity.this, "Error reading data", Toast.LENGTH_SHORT).show();
         }
         all.toString();
+
         Random rand = new Random();
         int randomPick = rand.nextInt(pokemonList.size());
         String selectedPick = pokemonList.get(randomPick);
@@ -141,7 +142,8 @@ public class addPokemonActivity extends AppCompatActivity {
         }
 
         pokemon = new pokemonObject(pokeName, pokeType, pokeID);
-        System.out.print(pokemon.getName() + pokemon.getType());
+        pokemon.setHappyFactor();
+        System.out.print(pokemon.getName() + "-" + pokemon.getType() + " "  + pokemon.getHappiness());
         return pokemon;
     }
 
